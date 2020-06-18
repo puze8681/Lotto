@@ -15,7 +15,7 @@
         android:orientation="horizontal"
         android:gravity="center"
         android:layout_width="match_parent"
-        android:layout_height="56dp">
+        android:layout_height="72dp">
         <TextView
             android:textColor="#fff"
             android:textSize="40sp"
@@ -159,7 +159,7 @@
 
         <Button
             android:id="@+id/button"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="24dp"
             android:layout_marginBottom="8dp"
             android:textColor="#FDF151"
             android:fontFamily="@font/dokrip"

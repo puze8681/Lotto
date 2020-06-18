@@ -110,14 +110,34 @@ class MainActivity : AppCompatActivity() {
         mInterstitialAd.loadAd(AdRequest.Builder().build())
     }
 
+    private fun getRandom(){
+
+    }
+
     private fun getNumber() {
         val animation = AnimationUtils.loadAnimation(this, R.anim.fade_in)
-        val num1 = Random().nextInt(44) + 1
-        val num2 = Random().nextInt(44) + 1
-        val num3 = Random().nextInt(44) + 1
-        val num4 = Random().nextInt(44) + 1
-        val num5 = Random().nextInt(44) + 1
-        val num6 = Random().nextInt(44) + 1
+        var num1: Int
+        var num2: Int
+        var num3: Int
+        var num4: Int
+        var num5: Int
+        var num6: Int
+        num1 = Random().nextInt(44) + 1
+        do {
+            num2 = Random().nextInt(44) + 1
+        }while (num2 == num1)
+        do {
+            num3 = Random().nextInt(44) + 1
+        }while (num3 == num1 || num3 == num2)
+        do {
+            num4 = Random().nextInt(44) + 1
+        }while (num4 == num1 || num4 == num2 || num4 == num3)
+        do {
+            num5 = Random().nextInt(44) + 1
+        }while (num5 == num1 || num5 == num2 || num5 == num3 || num5 == num4)
+        do {
+            num6 = Random().nextInt(44) + 1
+        }while (num6 == num1 || num6 == num2 || num6 == num3 || num6 == num4 || num6 == num5)
         row1.visibility = View.VISIBLE
         number1.visibility = View.VISIBLE
         number1.background = setColor(num1)
@@ -158,31 +178,31 @@ class MainActivity : AppCompatActivity() {
                             Handler().postDelayed({
                                 button.text = "번호 더 받기"
                                 BUTTON_STATE = 2
-                            }, 2100)
-                        }, 2100)
-                    }, 2100)
-                }, 2100)
-            }, 2100)
-        }, 2100)
+                            }, 2200)
+                        }, 2200)
+                    }, 2200)
+                }, 2200)
+            }, 2200)
+        }, 2200)
     }
 
     private fun resetNumber() {
         row1.visibility = View.GONE
-        number1.visibility = View.GONE
-        number2.visibility = View.GONE
-        number3.visibility = View.GONE
+        number1.visibility = View.INVISIBLE
+        number2.visibility = View.INVISIBLE
+        number3.visibility = View.INVISIBLE
         row2.visibility = View.GONE
-        number4.visibility = View.GONE
-        number5.visibility = View.GONE
-        number6.visibility = View.GONE
+        number4.visibility = View.INVISIBLE
+        number5.visibility = View.INVISIBLE
+        number6.visibility = View.INVISIBLE
         button.text = "번호 받기"
     }
 
     private fun getNumberAgain() {
         startSound(-2)
         Handler().postDelayed({
-            resetNumber()
             startAdFull()
+            resetNumber()
         }, 3000)
     }
 
