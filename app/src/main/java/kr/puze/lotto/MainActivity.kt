@@ -77,7 +77,7 @@ class MainActivity : AppCompatActivity() {
         mInterstitialAd = InterstitialAd(this)
         var test = "ca-app-pub-3940256099942544/1033173712"
         var adFullId = "ca-app-pub-2463787284908256/6616912140"
-        mInterstitialAd.adUnitId = test
+        mInterstitialAd.adUnitId = adFullId
         mInterstitialAd.adListener = object : AdListener() {
             override fun onAdLoaded() {
                 // 광고 로딩
